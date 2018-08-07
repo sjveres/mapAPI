@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>US Map Demo</title>
+
+	<style>
+	  #alert {
+	    font-family: Arial, Helvetica, sans-serif;
+	    font-size: 16px;
+	    background-color: #ddd;
+	    color: #333;
+	    padding: 5px;
+	    font-weight: bold;
+	  }
+	</style>
+
+	<script src="../lib/raphael.js"></script>
+	<!-- <script src="scale.raphael.js"></script> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+	<script src="color.jquery.js"></script>
+	<script src="../jquery.usmap.js"></script>
+
+
+	<script>
+	$('#map').usmap({
+  // The click action
+  click: function(event, data) {
+    $('#clicked-state')
+      .text('You clicked: ' + data.name)
+      .parent().effect('highlight', {color: '#C7F464'}, 2000);
+  }
+});
+	$(document).ready(function() {
+	  $('#map').usmap({
+			'stateSpecificStyles': {
+				'AL': {fill: 'yellow'},
+				'AK': {fill: '#ADFF2F'},
+				'AZ': {fill: '#ADFF2F'},
+				'AR': {fill: '#ADFF2F'},
+				'CA': {fill: 'yellow'},
+				'CO': {fill: 'yellow'},
+				'CT': {fill: 'yellow'},
+				'DE': {fill: '#ADFF2F'},
+				'FL': {fill: '#ADFF2F'},
+				'GA': {fill: 'yellow'},
+				'HI': {fill: '#ADFF2F'},
+				'ID': {fill: 'yellow'},
+				'IL': {fill: '#ADFF2F'},
+				'IN': {fill: '#ADFF2F'},
+				'IA': {fill: '#ADFF2F'},
+				'KS': {fill: 'pink'},
+				'KY': {fill: 'green'},
+				'LA': {fill: 'yellow'},
+				'ME': {fill: '#ADFF2F'},
+				'MD': {fill: '#ADFF2F'},
+				'MA': {fill: '#ADFF2F'},
+				'MI': {fill: '#ADFF2F'},
+				'MN': {fill: '#ADFF2F'},
+				'MS': {fill: 'yellow'},
+				'MO': {fill: '#ADFF2F'},
+				'MT': {fill: 'yellow'},
+				'NE': {fill: 'green'},
+				'NV': {fill: 'red'},
+				'NH': {fill: '#ADFF2F'},
+				'NJ': {fill: '#ADFF2F'},
+				'NM': {fill: 'yellow'},
+				'NY': {fill: '#ADFF2F'},
+				'NC': {fill: '#ADFF2F'},
+				'ND': {fill: '#ADFF2F'},
+				'OH': {fill: '#ADFF2F'},
+				'OK': {fill: '#ADFF2F'},
+				'OR': {fill: 'green'},
+				'PA': {fill: '#ADFF2F'},
+				'RI': {fill: '#FFA812'},
+				'SC': {fill: 'green'},
+				'SD': {fill: 'green'},
+				'TN': {fill: 'yellow'},
+				'TX': {fill: 'yellow'},
+				'UT': {fill: 'yellow'},
+				'VT': {fill: '#ADFF2F'},
+				'VA': {fill: '#ADFF2F'},
+				'WA': {fill: 'green'},
+				'WV': {fill: '#ADFF2F'},
+				'WI': {fill: '#ADFF2F'},
+				'WY': {fill: '#ADFF2F'}
+			},
+			'click' : function(event, data) {
+			$('#alert')
+	        .text('Click '+data.name+' on map 1. Newdata is:'+data.newinfo)
+
+	        .stop()
+	        .css('backgroundColor', '#ff0')
+	        .animate({backgroundColor: '#ddd'}, 1000);
+		}
+/*
+		function _getStatePolData(){
+	         var state_dict = {"AL":73,"AK":30,"AZ":80,"AR":33,"CA":55,"CO":58,"CT":54,"DE":39,
+	         "FL":26,"GA":62,"HI":27,"ID":64,"IL":35,"IN":47,"IA":38,"KS":"0","KY":25,
+	         "LA":68,"ME":38,"MD":35,"MA":50,"MI":44,"MN":33,"MS":58,"MO":32,"MT":59,"NE":25,
+	         "NV":134,"NH":39,"NJ":49,"NM":67,"NY":39,"NC":47,"ND":45,"OH":50,"OK":47,
+	         "OR":25,"PA":42,"RI":87,"SC":25,"SD":11,"TN":52,"TX":71,"UT":55,"VT":36,
+	         "VA":30,"WA":15,"WV":32,"WI":42,"WY":45}
+	         var answer = " ";
+	         var stateName = (event.target && event.target.dataState) || (event.dataState);
+	         for(state in state_dict){
+	           if(stateName == state){
+	             answer = state;
+	             break;
+	           }
+	         }
+
+		 }
+		 */
+
+
+	});
+
+
+
+
+});
+
+</script>
+
+
+</head>
+<body>
+  <div id="alert">Click a State!</div>
+	<div id="clicked-state"></div>
+
+  <div id="map" style="width: 930px; height: 630px; border: solid 3px red;"></div>
+
+</body>
+</html
